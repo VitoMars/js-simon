@@ -14,8 +14,12 @@ for (let i = 1; i <= 5; i++) {
 console.log(arrayGenerato);
 alert(arrayGenerato);
 
-var risultato = setTimeout(checkNumeri, 3000);
-console.log("Hai indovinato: " + risultato + " numeri");
+setTimeout(function () {
+  var risultato = checkNumeri(arrayGenerato);
+  console.log("Hai indovinato: " + risultato + " numeri");
+}, 3000);
+
+// setTimeout(checkNumeri, 3000);
 
 // Funzioni
 function checkNumeri(array) {
@@ -30,7 +34,7 @@ function checkNumeri(array) {
       numeriIndovinati++;
     }
   }
-  //Questo console.log mi serve solo per verificare la correttezza dell'esercizio
+  // Questo console.log mi serve solo per verificare la correttezza dell'esercizio
   console.log(arrayUtente);
   return numeriIndovinati;
 }
