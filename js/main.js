@@ -14,6 +14,7 @@ for (let i = 1; i <= 5; i++) {
 console.log(arrayGenerato);
 alert(arrayGenerato);
 
+// Non sono 30 secondi perchè sarebbero stati troppi per i test :)
 setTimeout(function () {
   var risultato = checkNumeri(arrayGenerato);
   console.log("Hai indovinato: " + risultato + " numeri");
@@ -29,11 +30,14 @@ function checkNumeri(array) {
 
   for (let i = 1; i <= 5; i++) {
     numeroUtente = parseInt(prompt("Inserisci il " + i + " numero"));
-    arrayUtente.push(numeroUtente);
-    if (array.includes(numeroUtente)) {
-      numeriIndovinati++;
+    if (arrayUtente.indexOf(numeroUtente) == -1) {
+      arrayUtente.push(numeroUtente);
+      if (array.includes(numeroUtente)) {
+        numeriIndovinati++;
+      }
     }
   }
+  // So che non si mettono i console log all'interno delle funzioni.
   // Questo console.log mi serve solo per verificare la correttezza dell'esercizio
   console.log(arrayUtente);
   return numeriIndovinati;
