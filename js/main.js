@@ -6,10 +6,12 @@
 
 var arrayGenerato = [];
 
-// For per generare 5 numeri casuali
-for (let i = 1; i <= 5; i++) {
+// While per generare 5 numeri casuali
+while (arrayGenerato.length < 5) {
   let numero = Math.round(Math.random() * 100);
-  arrayGenerato.push(numero);
+  if (!arrayGenerato.includes(numero)) {
+    arrayGenerato.push(numero);
+  }
 }
 console.log(arrayGenerato);
 alert(arrayGenerato);
@@ -20,8 +22,6 @@ setTimeout(function () {
   console.log("Hai indovinato: " + risultato + " numeri");
 }, 3000);
 
-// setTimeout(checkNumeri, 3000);
-
 // Funzioni
 function checkNumeri(array) {
   let arrayUtente = [];
@@ -30,11 +30,9 @@ function checkNumeri(array) {
 
   for (let i = 1; i <= 5; i++) {
     numeroUtente = parseInt(prompt("Inserisci il " + i + " numero"));
-    if (arrayUtente.indexOf(numeroUtente) == -1) {
+    if (!arrayUtente.includes(numeroUtente) && array.includes(numeroUtente)) {
       arrayUtente.push(numeroUtente);
-      if (array.includes(numeroUtente)) {
-        numeriIndovinati++;
-      }
+      numeriIndovinati++;
     }
   }
   // So che non si mettono i console log all'interno delle funzioni.
